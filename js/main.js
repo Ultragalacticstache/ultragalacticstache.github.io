@@ -110,7 +110,7 @@
     if (!nav) return;
 
     const onScroll = () => {
-      const mobile = window.matchMedia('(max-width: 599px)').matches; const y = window.scrollY; nav.classList.toggle('is-scrolled', y > (mobile ? 0 : 40)); const last = nav._lastY || 0; if (mobile) { nav.classList.remove('nav-hidden'); } else if (y > last && y > 80) { nav.classList.add('nav-hidden'); } else if (y < last) { nav.classList.remove('nav-hidden'); } nav._lastY = y;
+      const mobile = window.matchMedia('(max-width: 599px)').matches; const y = window.scrollY; nav.classList.toggle('is-scrolled', y > (mobile ? 0 : 40)); const last = nav._lastY || 0; if (mobile) { nav.classList.remove('nav-hidden'); } else if (y > last) { nav.classList.add('nav-hidden'); } else if (y < last) { nav.classList.remove('nav-hidden'); } nav._lastY = y;
     };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
