@@ -322,6 +322,12 @@ h2.headline{font-size:clamp(2rem,4.4vw,3.4rem);}
 .brand__name{font-family:var(--font-hud);font-weight:800;font-size:.85rem;letter-spacing:.14em;}
 .brand__tag{font-family:var(--font-hud);font-size:.52rem;letter-spacing:.24em;color:var(--cyan-soft);text-transform:uppercase;}
 
+/* Nav logo: bigger, legible mark + brand text (footer logo/text untouched) */
+.site-nav__bar .brand{gap:1rem;}
+.site-nav__bar .brand__mark{width:60px;height:60px;}
+.site-nav__bar .brand__name{font-size:1.05rem;}
+.site-nav__bar .brand__tag{font-size:.64rem;}
+
 .nav-links{display:none;align-items:center;gap:2.1rem;}
 .nav-links a{
   font-family:var(--font-hud);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;
@@ -835,7 +841,7 @@ h2.headline{font-size:clamp(2rem,4.4vw,3.4rem);}
    ========================================================================== */
 .story{position:relative;text-align:center;overflow:clip;}
 .story__medallion{
-  width:104px;height:104px;border-radius:50%;margin-inline:auto;margin-bottom:1.6rem;padding:3px;
+  width:260px;height:260px;border-radius:50%;margin-inline:auto;margin-bottom:1.6rem;padding:3px;
   background:conic-gradient(from 120deg,var(--cyan),var(--purple),var(--magenta),var(--amber),var(--cyan));
   box-shadow:0 0 46px -6px rgba(46,230,245,.6);
   animation:levitate 8s ease-in-out infinite;
