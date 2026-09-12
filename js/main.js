@@ -150,7 +150,8 @@
         y,
         duration: dur,
         ease: 'power3.out',
-        scrollTrigger: { trigger: el, start: 'top 88%' }
+        clearProps: 'transform,opacity',
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true }
       });
     });
 
@@ -163,7 +164,8 @@
         duration: dur,
         ease: 'power3.out',
         stagger: reduceMotion ? 0 : 0.12,
-        scrollTrigger: { trigger: group, start: 'top 85%' }
+        clearProps: 'transform,opacity',
+        scrollTrigger: { trigger: group, start: 'top 85%', once: true }
       });
     });
   }
