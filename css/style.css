@@ -333,7 +333,7 @@ h2.headline{font-size:clamp(2rem,4.4vw,3.4rem);}
    of the viewport. */
 .site-nav__bar .brand{gap:clamp(.7rem,3vw,1.1rem);}
 .site-nav__bar .brand__mark{
-  width:clamp(88px,20vw,157px);height:clamp(88px,20vw,157px);
+  width:clamp(88px,28vw,220px);height:clamp(88px,28vw,220px);
   transition:width var(--dur-med) var(--ease-out),height var(--dur-med) var(--ease-out);
 }
 .site-nav__bar .brand__name{
