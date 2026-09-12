@@ -322,9 +322,9 @@ h2.headline{font-size:clamp(2rem,4.4vw,3.4rem);}
 .brand__name{font-family:var(--font-hud);font-weight:800;font-size:.85rem;letter-spacing:.14em;}
 .brand__tag{font-family:var(--font-hud);font-size:.52rem;letter-spacing:.24em;color:var(--cyan-soft);text-transform:uppercase;}
 
-/* Nav logo: 2x the original phone size (min 88px), but the desktop cap is
-   1.4x smaller than the first pass (was clamp(88px,28vw,220px), now
-   clamp(88px,20vw,157px) — same minimum, gentler growth, smaller cap).
+/* Nav logo: mobile/tablet (below 1180px) is 2x bigger at every width (was
+   clamp(88px,28vw,220px), now clamp(176px,56vw,440px) — exactly double), and
+   drops to a fixed 157px on desktop (>=1180px) — the old 220px cap, 1.4x smaller.
    legible brand text scaled up to match. clamp() keeps narrow phones near a
    safe minimum and scales up on wider viewports, so the long unbreakable
    "ULTRAGALACTICSTACHE" word never forces horizontal overflow on small
@@ -333,7 +333,7 @@ h2.headline{font-size:clamp(2rem,4.4vw,3.4rem);}
    of the viewport. */
 .site-nav__bar .brand{gap:clamp(.7rem,3vw,1.1rem);}
 .site-nav__bar .brand__mark{
-  width:clamp(88px,28vw,220px);height:clamp(88px,28vw,220px);
+  width:clamp(176px,56vw,440px);height:clamp(176px,56vw,440px);
   transition:width var(--dur-med) var(--ease-out),height var(--dur-med) var(--ease-out);
 }
 .site-nav__bar .brand__name{
@@ -412,7 +412,7 @@ h2.headline{font-size:clamp(2rem,4.4vw,3.4rem);}
    full inline nav-links can sit next to it without crowding, so phones/
    small tablets keep the hamburger a bit longer. */
 @media (min-width:1180px){
-  .nav-links{display:flex;}
+  .site-nav__bar .brand__mark{width:157px;height:157px;} .nav-links{display:flex;}
   .currency-pill{display:flex;}
   .cart-btn__price{display:inline;}
   .menu-toggle{display:none;}
