@@ -279,39 +279,6 @@
   }
 
   /* -----------------------------------------------------------------------
-     8. Cart interactions (visual-only demo state)
-     ----------------------------------------------------------------------- */
-  function initCart () {
-    const countEl = document.querySelector('[data-cart-count]');
-    const priceEl = document.querySelector('[data-cart-price]');
-    const prices = { original: 34, nebula: 38, supernova: 45 };
-    let count = 1;
-    let total = 38;
-
-    document.querySelectorAll('[data-add-to-cart]').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        if (btn.classList.contains('is-added')) return;
-        const key = btn.dataset.addToCart;
-        const label = btn.querySelector('[data-btn-label]');
-        const originalText = label ? label.textContent : btn.textContent;
-
-        count += 1;
-        total += prices[key] || 0;
-        if (countEl) countEl.textContent = '[ ' + String(count).padStart(2, '0') + ' ]';
-        if (priceEl) priceEl.textContent = '$' + total.toFixed(2);
-
-        btn.classList.add('is-added');
-        if (label) label.textContent = 'ADDED TO FLEET';
-
-        window.setTimeout(() => {
-          btn.classList.remove('is-added');
-          if (label) label.textContent = originalText;
-        }, 2000);
-      });
-    });
-  }
-
-  /* -----------------------------------------------------------------------
      9. Newsletter (demo, no backend)
      ----------------------------------------------------------------------- */
   function initNewsletter () {
@@ -347,7 +314,6 @@
     initMagnetic();
     initTilt();
     initGlassSheen();
-    initCart();
     initNewsletter();
     initYear();
   });
