@@ -110,7 +110,7 @@
     if (!nav) return;
 
     const onScroll = () => {
-      nav.classList.toggle('is-scrolled', window.scrollY > 0);
+      nav.classList.toggle('is-scrolled', window.scrollY > (window.matchMedia('(max-width: 599px)').matches ? 0 : 40));
     };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
