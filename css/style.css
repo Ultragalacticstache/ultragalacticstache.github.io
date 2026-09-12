@@ -322,9 +322,8 @@ h2.headline{font-size:clamp(2rem,4.4vw,3.4rem);}
 .brand__name{font-family:var(--font-hud);font-weight:800;font-size:.85rem;letter-spacing:.14em;}
 .brand__tag{font-family:var(--font-hud);font-size:.52rem;letter-spacing:.24em;color:var(--cyan-soft);text-transform:uppercase;}
 
-/* Nav logo: 2x the original phone size (min 88px), but the desktop cap is
-   1.4x smaller than the first pass (was clamp(88px,28vw,220px), now
-   clamp(88px,20vw,157px) — same minimum, gentler growth, smaller cap).
+/* Nav logo: 2x bigger than the previous nav size on every viewport (was
+   clamp(44px,14vw,110px), now clamp(88px,28vw,220px) — same curve, doubled),
    legible brand text scaled up to match. clamp() keeps narrow phones near a
    safe minimum and scales up on wider viewports, so the long unbreakable
    "ULTRAGALACTICSTACHE" word never forces horizontal overflow on small
@@ -333,7 +332,7 @@ h2.headline{font-size:clamp(2rem,4.4vw,3.4rem);}
    of the viewport. */
 .site-nav__bar .brand{gap:clamp(.7rem,3vw,1.1rem);}
 .site-nav__bar .brand__mark{
-  width:clamp(88px,20vw,157px);height:clamp(88px,20vw,157px);
+  width:clamp(88px,28vw,220px);height:clamp(88px,28vw,220px);
   transition:width var(--dur-med) var(--ease-out),height var(--dur-med) var(--ease-out);
 }
 .site-nav__bar .brand__name{
