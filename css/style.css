@@ -320,7 +320,7 @@ h2.headline{font-size:clamp(2rem,4.4vw,3.4rem);}
 .brand__mark img{width:100%;height:100%;border-radius:50%;object-fit:cover;}
 .brand__type{display:flex;flex-direction:column;line-height:1.25;}
 .brand__name{font-family:var(--font-hud);font-weight:800;font-size:.85rem;letter-spacing:.14em;}
-.brand__tag{font-family:var(--font-hud);font-size:.52rem;letter-spacing:.24em;color:var(--cyan-soft);text-transform:uppercase;} @media (max-width:899px){.site-nav__bar .brand__mark{width:176px;height:176px;}}
+.brand__tag{font-family:var(--font-hud);font-size:.52rem;letter-spacing:.24em;color:var(--cyan-soft);text-transform:uppercase;} @media (max-width:899px){.site-nav__bar{padding-left:0;}.site-nav__bar .brand__mark{width:53px;height:53px;}}
 
 .nav-links{display:none;align-items:center;gap:2.1rem;}
 .nav-links a{
