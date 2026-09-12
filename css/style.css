@@ -327,7 +327,7 @@ h2.headline{font-size:clamp(2rem,4.4vw,3.4rem);}
    scales up on wider viewports, so the long unbreakable "ULTRAGALACTICSTACHE"
    word never forces horizontal overflow on small screens. */
 .site-nav__bar .brand{gap:clamp(.85rem,3vw,1.1rem);}
-.site-nav__bar .brand__mark{width:clamp(44px,14vw,110px);height:clamp(44px,14vw,110px);}
+.site-nav__bar .brand__mark{width:clamp(44px,14vw,110px);height:clamp(44px,14vw,110px);} @media (max-width:599px){.site-nav__bar .brand__mark{width:163px;height:163px;} .site-nav.is-scrolled .site-nav__bar .brand__mark{width:44px;height:44px;}}
 .site-nav__bar .brand__name{font-size:clamp(.85rem,2.8vw,1.15rem);}
 .site-nav__bar .brand__tag{font-size:clamp(.52rem,1.7vw,.7rem);}
 
