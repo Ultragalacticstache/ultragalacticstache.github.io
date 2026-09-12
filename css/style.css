@@ -317,10 +317,36 @@ h2.headline{font-size:clamp(2rem,4.4vw,3.4rem);}
   background:conic-gradient(from 140deg,var(--cyan),var(--purple),var(--magenta),var(--amber),var(--cyan));
   box-shadow:0 0 18px -2px rgba(46,230,245,.55);
 }
-.brand__mark img{width:100%;height:100%;border-radius:50%;object-fit:cover;}
+.brand__mark img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:center;}
 .brand__type{display:flex;flex-direction:column;line-height:1.25;}
 .brand__name{font-family:var(--font-hud);font-weight:800;font-size:.85rem;letter-spacing:.14em;}
 .brand__tag{font-family:var(--font-hud);font-size:.52rem;letter-spacing:.24em;color:var(--cyan-soft);text-transform:uppercase;}
+
+/* Nav logo: 2x the original phone size (min 88px), but the desktop cap is
+   1.4x smaller than the first pass (was clamp(88px,28vw,220px), now
+   clamp(88px,20vw,157px) — same minimum, gentler growth, smaller cap).
+   legible brand text scaled up to match. clamp() keeps narrow phones near a
+   safe minimum and scales up on wider viewports, so the long unbreakable
+   "ULTRAGALACTICSTACHE" word never forces horizontal overflow on small
+   screens. Once the page is scrolled, the mark and text ease back down so
+   the sticky bar stays compact instead of permanently taking over the top
+   of the viewport. */
+.site-nav__bar .brand{gap:clamp(.7rem,3vw,1.1rem);}
+.site-nav__bar .brand__mark{
+  width:clamp(88px,20vw,157px);height:clamp(88px,20vw,157px);
+  transition:width var(--dur-med) var(--ease-out),height var(--dur-med) var(--ease-out);
+}
+.site-nav__bar .brand__name{
+  font-size:clamp(.78rem,2.8vw,1.15rem);
+  transition:font-size var(--dur-med) var(--ease-out);
+}
+.site-nav__bar .brand__tag{
+  font-size:clamp(.48rem,1.7vw,.7rem);
+  transition:font-size var(--dur-med) var(--ease-out);
+}
+.site-nav.is-scrolled .site-nav__bar .brand__mark{width:clamp(44px,10vw,72px);height:clamp(44px,10vw,72px);}
+.site-nav.is-scrolled .site-nav__bar .brand__name{font-size:clamp(.85rem,2.2vw,1.05rem);}
+.site-nav.is-scrolled .site-nav__bar .brand__tag{font-size:clamp(.5rem,1.4vw,.65rem);}
 
 .nav-links{display:none;align-items:center;gap:2.1rem;}
 .nav-links a{
@@ -382,7 +408,10 @@ h2.headline{font-size:clamp(2rem,4.4vw,3.4rem);}
 .mobile-menu__foot{margin-top:auto;padding-top:2rem;border-top:1px solid var(--border-hair);
   font-family:var(--font-mono);font-size:.7rem;color:var(--ink-faint);letter-spacing:.08em;}
 
-@media (min-width:900px){
+/* Raised from 900px: the 2x-larger nav logo needs more room before the
+   full inline nav-links can sit next to it without crowding, so phones/
+   small tablets keep the hamburger a bit longer. */
+@media (min-width:1180px){
   .nav-links{display:flex;}
   .currency-pill{display:flex;}
   .cart-btn__price{display:inline;}
@@ -835,7 +864,7 @@ h2.headline{font-size:clamp(2rem,4.4vw,3.4rem);}
    ========================================================================== */
 .story{position:relative;text-align:center;overflow:clip;}
 .story__medallion{
-  width:104px;height:104px;border-radius:50%;margin-inline:auto;margin-bottom:1.6rem;padding:3px;
+  width:260px;height:260px;border-radius:50%;margin-inline:auto;margin-bottom:1.6rem;padding:3px;
   background:conic-gradient(from 120deg,var(--cyan),var(--purple),var(--magenta),var(--amber),var(--cyan));
   box-shadow:0 0 46px -6px rgba(46,230,245,.6);
   animation:levitate 8s ease-in-out infinite;
