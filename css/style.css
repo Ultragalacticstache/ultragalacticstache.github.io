@@ -318,14 +318,6 @@ h2.headline{font-size:clamp(2rem,4.4vw,3.4rem);}
   box-shadow:0 0 18px -2px rgba(46,230,245,.55);
 }
 .brand__mark img{width:100%;height:100%;border-radius:50%;object-fit:cover;}
-
-/* Nav logo: scale to match the menu bar's own height (footer logo untouched) */
-.site-nav__bar .brand{align-self:stretch;}
-.site-nav__bar .brand__mark{
-  align-self:stretch;
-  width:auto;height:auto;
-  aspect-ratio:1/1;
-}
 .brand__type{display:flex;flex-direction:column;line-height:1.25;}
 .brand__name{font-family:var(--font-hud);font-weight:800;font-size:.85rem;letter-spacing:.14em;}
 .brand__tag{font-family:var(--font-hud);font-size:.52rem;letter-spacing:.24em;color:var(--cyan-soft);text-transform:uppercase;}
@@ -843,7 +835,7 @@ h2.headline{font-size:clamp(2rem,4.4vw,3.4rem);}
    ========================================================================== */
 .story{position:relative;text-align:center;overflow:clip;}
 .story__medallion{
-  width:260px;height:260px;border-radius:50%;margin-inline:auto;margin-bottom:1.6rem;padding:3px;
+  width:104px;height:104px;border-radius:50%;margin-inline:auto;margin-bottom:1.6rem;padding:3px;
   background:conic-gradient(from 120deg,var(--cyan),var(--purple),var(--magenta),var(--amber),var(--cyan));
   box-shadow:0 0 46px -6px rgba(46,230,245,.6);
   animation:levitate 8s ease-in-out infinite;
