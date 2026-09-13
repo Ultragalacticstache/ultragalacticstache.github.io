@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>ULTRAGALACTICSTACHE — Extremely Strong Hold</title>
+<meta name="description" content="ULTRAGALACTICSTACHE — the universe's first Extremely Strong Hold moustache wax. Gravity-defying hold, forged in zero gravity for gentlemen who refuse to fall." data-i18n-attr="content:meta.description">
+<meta name="theme-color" content="#05050a">
+<meta property="og:title" content="ULTRAGALACTICSTACHE — Extremely Strong Hold">
+<meta property="og:description" content="Gravity-defying moustache wax, engineered in the cosmos. Choose your galaxy." data-i18n-attr="content:meta.ogdesc">
+<meta property="og:image" content="assets/brand-banner.png">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="assets/brand-medallion.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Orbitron:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Ambient backdrop: starfield canvas + film grain + scanlines (fixed, behind everything) -->
+<canvas id="starfield" aria-hidden="true"></canvas>
+<div class="grain-overlay" aria-hidden="true"></div>
+<div class="scanline-overlay" aria-hidden="true"></div>
+
+<!-- ============================================================ -->
+<!-- HUD Ticker                                                    -->
+<!-- ============================================================ -->
+<aside class="hud-ticker" aria-label="Live mission status">
+  <div class="hud-ticker__track">
+    <ul class="hud-ticker__set">
+      <li><span class="dot"></span><span data-i18n="ticker.sector">Transmitting from Sector 09</span></li>
+      <li>/// <span data-i18n="ticker.matrix">Zero-Gravity Molecular Matrix</span></li>
+      <li>/// <span data-i18n="ticker.best">One of the best waxes on Earth</span></li>
+      <li class="accent">/// <span data-i18n="ticker.rating">Hold Rating 10/10 Registered</span></li>
+      <li>/// <span data-i18n="ticker.voyager">Formulated For The Modern Voyager</span></li>
+    </ul>
+    <ul class="hud-ticker__set" aria-hidden="true">
+      <li><span class="dot"></span><span data-i18n="ticker.sector">Transmitting from Sector 09</span></li>
+      <li>/// <span data-i18n="ticker.matrix">Zero-Gravity Molecular Matrix</span></li>
+      <li>/// <span data-i18n="ticker.best">One of the best waxes on Earth</span></li>
+      <li class="accent">/// <span data-i18n="ticker.rating">Hold Rating 10/10 Registered</span></li>
+      <li>/// <span data-i18n="ticker.voyager">Formulated For The Modern Voyager</span></li>
+    </ul>
+  </div>
+</aside>
+
+<!-- ============================================================ -->
+<!-- Navigation                                                    -->
+<!-- ============================================================ -->
+<header class="site-nav">
+  <nav class="site-nav__bar" aria-label="Primary">
+    <a class="brand" href="#top" aria-label="ULTRAGALACTICSTACHE home">
+      <span class="brand__mark"><img src="assets/brand-medallion.png" alt="" width="44" height="44" loading="eager"></span>
+      <span class="brand__type">
+        <span class="brand__name">ULTRAGALACTIC<wbr>STACHE</span>
+        <span class="brand__tag" data-i18n="brand.tag">Zero-G Grooming · Est. 2026</span>
+      </span>
+    </a>
+
+    <div class="nav-links">
+      <a href="#shop" data-i18n="nav.shop">Mustache Waxes</a>
+      <a href="#formula" data-i18n="nav.formula">The Formula</a>
+      <a href="#why-it-holds" data-i18n="nav.why">Why It Holds</a>
+      <a href="#reviews" data-i18n="nav.reviews">Reviews</a>
+      <a href="#universe" data-i18n="nav.universe">Our Universe</a>
+    </div>
+
+    <div class="nav-right">
+      <div class="lang-switch" role="group" aria-label="Language / Limbă">
+        <button class="lang-switch__btn" type="button" data-lang-set="en" aria-pressed="true">
+          <svg viewBox="0 0 60 30" width="18" height="12" aria-hidden="true"><clipPath id="uk-clip"><path d="M0 0v30h60V0z"/></clipPath><g clip-path="url(#uk-clip)"><path d="M0 0v30h60V0z" fill="#00247d"/><path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" clip-path="url(#uk-clip)" stroke="#cf142b" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#cf142b" stroke-width="6"/></g></svg>
+          <span>EN</span>
+        </button>
+        <button class="lang-switch__btn" type="button" data-lang-set="ro" aria-pressed="false">
+          <svg viewBox="0 0 60 30" width="18" height="12" aria-hidden="true"><rect width="20" height="30" fill="#002b7f"/><rect x="20" width="20" height="30" fill="#fcd116"/><rect x="40" width="20" height="30" fill="#ce1126"/></svg>
+          <span>RO</span>
+        </button>
+      </div>
+      <button class="menu-toggle" type="button" aria-label="Open menu" data-i18n-attr="aria-label:nav.openmenu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<div class="mobile-menu" id="mobile-menu">
+  <nav class="mobile-menu__links" aria-label="Mobile">
+    <a href="#shop"><span>01</span><span data-i18n="nav.shop">Mustache Waxes</span></a>
+    <a href="#formula"><span>02</span><span data-i18n="nav.formula">The Formula</span></a>
+    <a href="#why-it-holds"><span>03</span><span data-i18n="nav.why">Why It Holds</span></a>
+    <a href="#reviews"><span>04</span><span data-i18n="nav.reviews">Reviews</span></a>
+    <a href="#universe"><span>05</span><span data-i18n="nav.universe">Our Universe</span></a>
+  </nav>
+  <div class="mobile-menu__foot" data-i18n="mobile.foot">EST. 2026 // TRANSMITTING FROM SECTOR 09</div>
+</div>
+
+<main id="top">
+
+  <!-- ============================================================ -->
+  <!-- HERO                                                          -->
+  <!-- ============================================================ -->
+  <section class="hero">
+    <div class="hero__photo-bg" aria-hidden="true"></div>
+    <div class="nebula-field" aria-hidden="true">
+      <div class="nebula-blob cyan" style="width:34rem;height:34rem;top:-10%;left:-12%;"></div>
+      <div class="nebula-blob magenta" style="width:38rem;height:38rem;bottom:-16%;right:-10%;animation-delay:-8s;"></div>
+      <div class="nebula-blob purple" style="width:26rem;height:26rem;top:30%;left:40%;animation-delay:-14s;"></div>
+    </div>
+    <div class="hero__rays" aria-hidden="true"></div>
+
+    <div class="wrap hero__grid">
+      <div class="hero__copy">
+        <span class="hero__tag" data-reveal><span class="dot"></span><span data-i18n="hero.tag">Class 10 Titanium Hold · Est. 2026</span></span>
+
+        <h1 class="hero__title" data-reveal>
+          ULTRA<br>GALACTIC<br class="br-mobile"><span class="spectral-text">STACHE</span>
+          <small data-i18n="hero.title.small">Extremely Strong Hold</small>
+        </h1>
+
+        <p class="hero__lede" data-reveal data-i18n="hero.lede">
+          The universe's first <strong>Extremely Strong Hold</strong> wax —
+          <span class="gold-text">forged to defy gravity itself</span>, engineered for
+          moustaches that refuse to surrender to heat, humidity, or the pull of an ordinary day.
+        </p>
+
+        <div class="hero__stats" data-reveal>
+          <div class="hero__stat"><b>10.0 <em>/10</em></b><span data-i18n="hero.stat1.label">Hold Index</span></div>
+          <div class="hero__stat"><b data-i18n="hero.stat2.value">48 HRS</b><span data-i18n="hero.stat2.label">Orbit Lock</span></div>
+          <div class="hero__stat"><b>14.2 Gs</b><span data-i18n="hero.stat3.label">Gravity Res.</span></div>
+        </div>
+
+        <div class="hero__ctas" data-reveal>
+          <a class="btn btn--primary" href="https://wa.me/40774632979" target="_blank" rel="noopener noreferrer" data-magnetic>
+            <span data-i18n="hero.cta.primary">Discuss on Whatsapp</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 5l7 7-7 7M21 12H3"/></svg>
+          </a>
+          <a class="btn btn--ghost" href="#formula" data-magnetic data-i18n="hero.cta.ghost">Discover The Formula</a>
+        </div>
+
+        <div class="hero__trust" data-reveal>
+          <span><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.7-9.3a1 1 0 00-1.4-1.4L9 10.6 7.7 9.3a1 1 0 00-1.4 1.4l2 2a1 1 0 001.4 0l4-4z" clip-rule="evenodd"/></svg><span data-i18n="hero.trust1">100% Natural Beeswax Base</span></span>
+          <span><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.7-9.3a1 1 0 00-1.4-1.4L9 10.6 7.7 9.3a1 1 0 00-1.4 1.4l2 2a1 1 0 001.4 0l4-4z" clip-rule="evenodd"/></svg><span data-i18n="hero.trust2">Cruelty-Free &amp; Vegan</span></span>
+        </div>
+      </div>
+
+      <div class="hero__stage" data-reveal>
+        <div class="hero__ring hero__ring--3" aria-hidden="true"></div>
+
+        <div class="hero__product" data-tilt>
+          <div class="tin-stage">
+            <div class="tin-stage__glow" style="background:radial-gradient(circle,#ef3f8a,transparent 70%);"></div>
+            <img class="tin-photo" src="assets/product-tin.jpg" alt="ULTRAGALACTICSTACHE moustache wax tin, open, floating in deep space with orbiting cyan and magenta energy rings" data-i18n-attr="alt:alt.tin.hero" width="512" height="512" loading="eager">
+          </div>
+        </div>
+
+        <div class="hero__badge glass hero__badge--top">
+          <span class="dot"></span><span data-i18n="hero.badge.top">Orbital Spin: Stable</span>
+        </div>
+        <div class="hero__badge glass hero__badge--bottom">
+          <small data-i18n="hero.badge.bottom.small">Formulation</small>
+          <strong data-i18n="hero.badge.bottom.strong">Bond Integrity: 99.9%</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-cue" aria-hidden="true"><span data-i18n="scroll.cue">Scroll</span><span class="scroll-cue__line"></span></div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- GRAVITY-DEFYING HOLD                                          -->
+  <!-- ============================================================ -->
+  <section class="section" id="formula">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow" data-reveal data-i18n="formula.eyebrow">Engineered In Orbit</span>
+        <h2 class="headline" data-reveal><span data-i18n="formula.headline.pre">GRAVITY-DEFYING</span> <span class="chrome-text" data-i18n="formula.headline.accent">HOLD.</span></h2>
+        <p class="section-sub" data-reveal data-i18n="formula.sub">Engineered for moustaches that refuse to fall — built to shrug off atmospheric drag, tropical humidity, and the ordinary pull of gravity.</p>
+      </div>
+
+      <div class="pillars" data-reveal-group>
+        <article class="pillar" data-tilt style="--pillar-accent:#2ee6f5" data-reveal-item>
+          <div class="pillar__glow" aria-hidden="true"></div>
+          <span class="pillar__index">01</span>
+          <svg class="pillar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/><path d="M9.5 15.5c0 1.2 1 2 2.5 2"/></svg>
+          <h3><i></i><span data-i18n="pillar1.title">Extreme Hold</span></h3>
+          <p data-i18n="pillar1.desc">A triple-refined micro-crystalline wax matrix that locks each follicle in place with tensile resilience far beyond ordinary formulas.</p>
+          <div class="pillar__spec" data-i18n="pillar1.spec">Tensile · 9.8 kN / inch</div>
+        </article>
+
+        <article class="pillar" data-tilt style="--pillar-accent:#ef3f8a" data-reveal-item>
+          <div class="pillar__glow" aria-hidden="true"></div>
+          <span class="pillar__index">02</span>
+          <svg class="pillar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+          <h3><i></i><span data-i18n="pillar2.title">All-Day Control</span></h3>
+          <p data-i18n="pillar2.desc">Resistant to sweat, downpours, thermal spikes and crosswinds — your shape holds steady from sunrise to last call.</p>
+          <div class="pillar__spec" data-i18n="pillar2.spec">Surface Res. · 100% Hydrophobic</div>
+        </article>
+
+        <article class="pillar" data-tilt style="--pillar-accent:#f2b545" data-reveal-item>
+          <div class="pillar__glow" aria-hidden="true"></div>
+          <span class="pillar__index">03</span>
+          <svg class="pillar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l6-16 2 6 6-6-6 16-2-6z"/></svg>
+          <h3><i></i><span data-i18n="pillar3.title">Precision Styling</span></h3>
+          <p data-i18n="pillar3.desc">A firm, malleable set gives total command over curls, points and handlebar architecture — no slipping, no drift.</p>
+          <div class="pillar__spec" data-i18n="pillar3.spec">Working Time · 60 Seconds</div>
+        </article>
+
+        <article class="pillar" data-tilt style="--pillar-accent:#8b5cf6" data-reveal-item>
+          <div class="pillar__glow" aria-hidden="true"></div>
+          <span class="pillar__index">04</span>
+          <svg class="pillar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.5 6.5L21 11l-6.5 2.5L12 20l-2.5-6.5L3 11l6.5-2.5z"/></svg>
+          <h3><i></i><span data-i18n="pillar4.title">Premium Formula</span></h3>
+          <p data-i18n="pillar4.desc">Cold-pressed botanicals and refined beeswax nourish every strand — full hold, zero greasy residue.</p>
+          <div class="pillar__spec" data-i18n="pillar4.spec">Nutrient Density · 100% Raw</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- STRONGER THAN GRAVITY                                        -->
+  <!-- ============================================================ -->
+  <section class="section" id="gravity-meter">
+    <div class="nebula-field" aria-hidden="true">
+      <div class="nebula-blob purple" style="width:30rem;height:30rem;top:10%;left:50%;"></div>
+    </div>
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow pink" data-reveal data-i18n="gravity.eyebrow">Strength Telemetry</span>
+        <h2 class="headline" data-reveal><span data-i18n="gravity.headline.pre">STRONGER THAN</span> <span class="chrome-text" data-i18n="gravity.headline.accent">GRAVITY.</span></h2>
+        <p class="section-sub" data-reveal data-i18n="gravity.sub">Empirical stress analysis measured at standard planetary pressure and terminal velocity.</p>
+      </div>
+
+      <div class="glass meter-card" data-reveal>
+        <div class="meter" data-target="32" data-suffix="%">
+          <div class="meter__head">
+            <span class="meter__label" style="--m-color:#6b7184"><i></i><span data-i18n="meter1.label">Normal Wax</span></span>
+            <span class="meter__value" style="--m-color:#9aa0b2">0%</span>
+          </div>
+          <div class="meter__track"><div class="meter__fill" style="--m-fill:#565c6e"></div></div>
+          <p class="meter__note" data-i18n="meter1.note">Fails at room temperature under mild wind gusts.</p>
+        </div>
+
+        <div class="meter" data-target="68" data-suffix="%">
+          <div class="meter__head">
+            <span class="meter__label" style="--m-color:#a5b4ff"><i style="background:#7c8cff"></i><span data-i18n="meter2.label">Strong Hold</span></span>
+            <span class="meter__value" style="--m-color:#7c8cff">0%</span>
+          </div>
+          <div class="meter__track"><div class="meter__fill" style="--m-fill:#7c8cff"></div></div>
+          <p class="meter__note" data-i18n="meter2.note">Drops shape within six hours under humidity or light rain.</p>
+        </div>
+
+        <div class="meter meter--hero" data-target="99.9" data-suffix="%">
+          <div class="meter__head">
+            <span class="meter__label" style="--m-color:#8ff3fb"><i style="background:#2ee6f5"></i>ULTRAGALACTICSTACHE</span>
+            <span class="meter__value" style="--m-color:#8ff3fb">0%</span>
+          </div>
+          <div class="meter__track">
+            <div class="meter__fill"></div>
+            <div class="meter__spark"></div>
+          </div>
+          <p class="meter__note highlight" data-i18n="meter3.note">Zero slippage under rocket-launch g-forces &amp; Mach 3 wind shear.</p>
+        </div>
+
+        <div class="telemetry-grid">
+          <div><span data-i18n="telemetry1.label">Tensile Resistance</span><strong style="color:#2ee6f5">9.8 kN</strong></div>
+          <div><span data-i18n="telemetry2.label">Melting Threshold</span><strong style="color:#f2b545">147°F / 64°C</strong></div>
+          <div><span data-i18n="telemetry3.label">Wind-Shear Rating</span><strong style="color:#ef3f8a" data-i18n="telemetry3.value">Mach 3.2</strong></div>
+          <div><span data-i18n="telemetry4.label">Clean Rinse</span><strong style="color:#3ee08a" data-i18n="telemetry4.value">Hot Water Only</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- WHY ULTRAGALACTICSTACHE — split comparison                   -->
+  <!-- ============================================================ -->
+  <section class="section" id="why-it-holds">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow amber" data-reveal data-i18n="why.eyebrow">Side-By-Side Diagnostic</span>
+        <h2 class="headline" data-reveal><span data-i18n="why.headline.pre">ORDINARY WAX</span> <span class="chrome-text" data-i18n="why.headline.vs">VS.</span> ULTRAGALACTICSTACHE</h2>
+        <p class="section-sub" data-reveal data-i18n="why.sub">The difference isn't subtle. It's measured in gravity.</p>
+      </div>
+
+      <div class="split" data-reveal>
+        <div class="split__panel split__panel--ordinary">
+          <span class="split__kicker" data-i18n="split.ordinary.kicker">Ordinary Wax</span>
+          <h3 class="split__title" data-i18n="split.ordinary.title">Standard Issue</h3>
+          <ul class="split__list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg><span data-i18n="split.ordinary.li1">Weak, inconsistent hold</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg><span data-i18n="split.ordinary.li2">Collapses in heat or humidity</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg><span data-i18n="split.ordinary.li3">Needs constant reapplication</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg><span data-i18n="split.ordinary.li4">Greasy, synthetic residue</span></li>
+          </ul>
+        </div>
+
+        <div class="split__vs">VS</div>
+
+        <div class="split__panel split__panel--ugs">
+          <span class="split__kicker">ULTRAGALACTICSTACHE</span>
+          <h3 class="split__title chrome-text" data-i18n="split.ugs.title">Gravity-Defying</h3>
+          <ul class="split__list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="split.ugs.li1">Extreme, gravity-defying hold</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="split.ugs.li2">All-day, all-conditions control</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="split.ugs.li3">Precision styling architecture</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="split.ugs.li4">Premium cosmic-grade formula</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- PRODUCTS — Choose Your Galaxy                                -->
+  <!-- ============================================================ -->
+  <section class="section" id="shop">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow pink" data-reveal data-i18n="shop.eyebrow">Interstellar Fleet Arsenal</span>
+        <h2 class="headline" data-reveal><span data-i18n="shop.headline.pre">CHOOSE YOUR</span> <span class="chrome-text" data-i18n="shop.headline.accent">GALAXY.</span></h2>
+        <p class="section-sub" data-reveal data-i18n="shop.sub">Hand-poured in small gravitational batches. Packaged inside precision-milled aerospace-grade tins.</p>
+      </div>
+
+      <div class="products" data-reveal-group>
+        <article class="product-card" data-tilt data-reveal-item style="--card-accent:#2ee6f5">
+          <div class="product-card__body">
+            <span class="product-card__tag" data-i18n="product1.tag">Classic Matrix</span>
+            <div class="product-card__stage">
+              <div class="tin-stage__glow" style="background:radial-gradient(circle,#2ee6f5,transparent 70%);opacity:.35"></div>
+              <img class="tin-photo" src="assets/product-tin.jpg" alt="The Original wax tin, floating in space" data-i18n-attr="alt:alt.tin.original" width="512" height="512" loading="lazy">
+            </div>
+            <div class="stars">★★★★★<span>(248)</span></div>
+            <h3 data-i18n="product1.name">THE ORIGINAL</h3>
+            <p class="desc" data-i18n="product1.desc">Ultra Strong Hold. The quintessential zero-gravity blend — a firm, dependable wax built for daily handlebar mastery.</p>
+            <div class="spec-list">
+              <div><span data-i18n="spec.hold">Hold</span><span class="accent">9.5 / 10</span></div>
+              <div><span data-i18n="spec.scent">Scent</span><span data-i18n="scent.yellow">Yellow Beeswax</span></div>
+              <div><span data-i18n="spec.finish">Finish</span><span data-i18n="finish.matte">Matte</span></div>
+            </div>
+          </div>
+          <div class="product-card__foot">
+            <div class="product-card__price"><span data-i18n="netwt">NET WT 30ml</span></div>
+            <a class="btn btn--sm btn--block add-to-cart" href="https://wa.me/40774632979" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              <span data-btn-label data-i18n="btn.whatsapp">Discuss on WhatsApp</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="product-card product-card--featured" data-tilt data-reveal-item style="--card-accent:#ef3f8a">
+          <div class="product-card__ribbon" data-i18n="product2.ribbon">Sector Favorite</div>
+          <div class="product-card__body">
+            <span class="product-card__tag" data-i18n="product2.tag">Extreme</span>
+            <div class="product-card__stage">
+              <div class="tin-stage__glow" style="background:radial-gradient(circle,#ef3f8a,transparent 70%);opacity:.4"></div>
+              <img class="tin-photo" src="assets/product-tin.jpg" alt="Nebula Edition wax tin, floating in space" data-i18n-attr="alt:alt.tin.nebula" width="512" height="512" loading="lazy">
+            </div>
+            <div class="stars">★★★★★<span>(512)</span></div>
+            <h3 data-i18n="product2.name">NEBULA EDITION</h3>
+            <p class="desc" data-i18n="product2.desc">Extreme Hold + Cosmic Scent. Our flagship formulation, enhanced with mineral resin for all-day handlebar architecture.</p>
+            <div class="spec-list">
+              <div><span data-i18n="spec.hold">Hold</span><span class="accent">10 / 10</span></div>
+              <div><span data-i18n="spec.scent">Scent</span><span data-i18n="scent.yellow">Yellow Beeswax</span></div>
+              <div><span data-i18n="spec.finish">Finish</span><span data-i18n="finish.chrome">Chrome Luster</span></div>
+            </div>
+          </div>
+          <div class="product-card__foot">
+            <div class="product-card__price"><span data-i18n="netwt">NET WT 30ml</span></div>
+            <a class="btn btn--sm btn--block add-to-cart" href="https://wa.me/40774632979" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              <span data-btn-label data-i18n="btn.whatsapp">Discuss on WhatsApp</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="product-card" data-tilt data-reveal-item style="--card-accent:#f2b545">
+          <div class="product-card__body">
+            <span class="product-card__tag" data-i18n="product3.tag">Limited Run</span>
+            <div class="product-card__stage">
+              <div class="tin-stage__glow" style="background:radial-gradient(circle,#f2b545,transparent 70%);opacity:.35"></div>
+              <img class="tin-photo" src="assets/product-tin.jpg" alt="Supernova Edition wax tin, floating in space" data-i18n-attr="alt:alt.tin.supernova" width="512" height="512" loading="lazy">
+            </div>
+            <div class="stars">★★★★★<span>(94)</span></div>
+            <h3 data-i18n="product3.name">SUPERNOVA EDITION</h3>
+            <p class="desc" data-i18n="product3.desc">Maximum Control. Infused with obsidian mineral powder — hardens into an unyielding, championship-grade hold.</p>
+            <div class="spec-list">
+              <div><span data-i18n="spec.hold">Hold</span><span class="accent">11 / 10</span></div>
+              <div><span data-i18n="spec.scent">Scent</span><span data-i18n="scent.orange">Orange Beeswax, Polen &amp; Propolis</span></div>
+              <div><span data-i18n="spec.finish">Finish</span><span data-i18n="finish.satin">Satin</span></div>
+            </div>
+          </div>
+          <div class="product-card__foot">
+            <div class="product-card__price"><span data-i18n="netwt">NET WT 30ml</span></div>
+            <a class="btn btn--sm btn--block add-to-cart" href="https://wa.me/40774632979" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              <span data-btn-label data-i18n="btn.whatsapp">Discuss on WhatsApp</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- Authentic artwork showcase                                    -->
+  <!-- ============================================================ -->
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="artwork-banner" data-reveal>
+        <img src="assets/brand-banner.png" alt="ULTRAGALACTICSTACHE emblem set against a field of stars and spiral galaxies" data-i18n-attr="alt:alt.banner" width="1152" height="630" loading="lazy">
+        <div class="artwork-banner__overlay"></div>
+        <div class="artwork-banner__content glass">
+          <div>
+            <span data-i18n="artwork.label">Official Matrix Artwork</span>
+            <h3 data-i18n="artwork.title">Extremely Strong Hold — Formulated In Zero-G</h3>
+          </div>
+          <a class="btn btn--primary" href="https://wa.me/40774632979" target="_blank" rel="noopener noreferrer" data-magnetic data-i18n="artwork.cta">Try it out! Discuss on Whatsapp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- HOW IT WORKS                                                  -->
+  <!-- ============================================================ -->
+  <section class="section protocol" id="protocol">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow" data-reveal data-i18n="protocol.eyebrow">Instruction Manual</span>
+        <h2 class="headline" data-reveal><span data-i18n="protocol.headline.pre">ENGINEERED IN</span> <span class="chrome-text" data-i18n="protocol.headline.accent">ANOTHER DIMENSION.</span></h2>
+        <p class="section-sub" data-reveal data-i18n="protocol.sub">A formula this potent requires correct atmospheric activation.</p>
+      </div>
+
+      <div class="protocol__line" aria-hidden="true"></div>
+      <div class="protocol__grid" data-reveal-group>
+        <div class="protocol__step" style="--step-accent:#2ee6f5" data-reveal-item>
+          <div class="protocol__num">01</div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg>
+          <h3 data-i18n="step1.title">Warm</h3>
+          <p data-i18n="step1.desc">Scrape a pea-sized disc from the tin and rub between fingertips until friction turns it soft and workable.</p>
+        </div>
+        <div class="protocol__step" style="--step-accent:#ef3f8a" data-reveal-item>
+          <div class="protocol__num">02</div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4M2 12a10 10 0 1 0 3-7"/></svg>
+          <h3 data-i18n="step2.title">Apply</h3>
+          <p data-i18n="step2.desc">Work the wax evenly through your moustache, from the philtrum outward to the very tips.</p>
+        </div>
+        <div class="protocol__step" style="--step-accent:#f2b545" data-reveal-item>
+          <div class="protocol__num">03</div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l6-16 2 6 6-6-6 16-2-6z"/></svg>
+          <h3 data-i18n="step3.title">Shape</h3>
+          <p data-i18n="step3.desc">Sculpt handlebars, curls, or a classic wave — the formula stays fully malleable for a full sixty seconds.</p>
+        </div>
+        <div class="protocol__step" style="--step-accent:#8b5cf6" data-reveal-item>
+          <div class="protocol__num">04</div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+          <h3 data-i18n="step4.title">Defy Gravity</h3>
+          <p data-i18n="step4.desc">Let it cool for a moment. The set locks into an immovable hold that lasts a full 48 hours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- REVIEWS                                                       -->
+  <!-- ============================================================ -->
+  <section class="section" id="reviews">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow" data-reveal data-i18n="reviews.eyebrow">Transmission Logs: Incoming</span>
+        <h2 class="headline" data-reveal><span data-i18n="reviews.headline.pre">THE STACHE COMMANDERS</span> <span class="chrome-text" data-i18n="reviews.headline.accent">HAVE SPOKEN.</span></h2>
+        <p class="section-sub" data-reveal data-i18n="reviews.sub">Verified reports from pilots, barbers, and orbital gentlemen across every timezone.</p>
+      </div>
+
+      <div class="reviews" data-reveal-group>
+        <article class="glass review-card" data-reveal-item>
+          <div>
+            <div class="review-card__head"><span style="color:#f2b545">★★★★★</span><span class="review-card__sector" data-i18n="review1.sector">Sector Alpha-01</span></div>
+            <p data-i18n="review1.quote">&ldquo;Finally, a wax that actually keeps my moustache exactly where I put it. Six-hour flights, open cockpit — it didn't move a millimetre.&rdquo;</p>
+          </div>
+          <div class="review-card__person">
+            <div class="review-card__avatar">MV</div>
+            <div><h4 data-i18n="review1.name">Commander Marcus Vance</h4><p data-i18n="review1.role">Test Pilot, Verified Buyer</p></div>
+          </div>
+        </article>
+
+        <article class="glass review-card" data-reveal-item>
+          <div>
+            <div class="review-card__head"><span style="color:#f2b545">★★★★★</span><span class="review-card__sector" style="color:#ff9dc4" data-i18n="review2.sector">Station Europa</span></div>
+            <p data-i18n="review2.quote">&ldquo;The scent is unbelievable — dark starlight and smoky cedar. Survived a 95% humidity monsoon without wilting. Truly zero gravity.&rdquo;</p>
+          </div>
+          <div class="review-card__person">
+            <div class="review-card__avatar">ES</div>
+            <div><h4 data-i18n="review2.name">Dr. Elliott Sterling</h4><p data-i18n="review2.role">Astrophysicist &amp; Beard Competitor</p></div>
+          </div>
+        </article>
+
+        <article class="glass review-card" data-reveal-item>
+          <div>
+            <div class="review-card__head"><span style="color:#f2b545">★★★★★</span><span class="review-card__sector" style="color:#ffd98a" data-i18n="review3.sector">Neo-Tokyo Core</span></div>
+            <p data-i18n="review3.quote">&ldquo;Twenty-two years as a master barber, and I've stocked every wax on earth. This is objectively on a higher dimension.&rdquo;</p>
+          </div>
+          <div class="review-card__person">
+            <div class="review-card__avatar">KT</div>
+            <div><h4 data-i18n="review3.name">Kenji Takahashi</h4><p data-i18n="review3.role">Owner, The Cyber Razor Lounge</p></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- BRAND STORY — Our Universe                                    -->
+  <!-- ============================================================ -->
+  <section class="section story" id="universe">
+    <div class="nebula-field" aria-hidden="true">
+      <div class="nebula-blob purple" style="width:32rem;height:32rem;top:0;left:20%;"></div>
+      <div class="nebula-blob cyan" style="width:26rem;height:26rem;bottom:-10%;right:10%;animation-delay:-10s;"></div>
+    </div>
+    <div class="wrap">
+      <div class="story__medallion"><img src="assets/brand-medallion.png" alt="ULTRAGALACTICSTACHE authentic insignia medallion, established 2026" data-i18n-attr="alt:alt.medallion" width="260" height="260" loading="lazy"></div>
+      <span class="eyebrow pink" style="justify-content:center" data-reveal data-i18n="universe.eyebrow">Brand Manifesto · Est. 2026</span>
+      <h2 class="headline chrome-text" style="margin-top:.8rem" data-reveal data-i18n="universe.headline">BORN IN THE COSMOS.<br>MADE FOR LEGENDS.</h2>
+
+      <div class="story__body">
+        <p data-reveal data-i18n="universe.p1">For generations, men accepted ordinary grooming products engineered for sedentary lives in mild climates. Moustaches collapsed before lunch; curls drooped before dusk.</p>
+        <p class="emphasis" data-reveal data-i18n="universe.p2">We believe a moustache deserves more than ordinary wax. It deserves a force powerful enough to challenge gravity.</p>
+        <p class="story__mantra" data-reveal data-i18n="universe.mantra">Never Surrender To Gravity.</p>
+      </div>
+
+      <a class="btn btn--primary" href="https://wa.me/40774632979" target="_blank" rel="noopener noreferrer" data-magnetic data-reveal>
+        <span data-i18n="universe.cta">Try the Supernova Edition</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 5l7 7-7 7M21 12H3"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- FINAL CTA                                                     -->
+  <!-- ============================================================ -->
+  <section class="section final-cta">
+    <div class="nebula-field" aria-hidden="true">
+      <div class="nebula-blob cyan" style="width:30rem;height:30rem;top:-10%;left:10%;"></div>
+      <div class="nebula-blob magenta" style="width:30rem;height:30rem;bottom:-10%;right:10%;animation-delay:-6s;"></div>
+    </div>
+    <div class="wrap">
+      <div class="glass final-cta__panel" data-reveal>
+        <div class="final-cta__content">
+          <span class="eyebrow" style="justify-content:center" data-i18n="finalcta.eyebrow">Ready To Defy Gravity?</span>
+          <h2 data-i18n="finalcta.headline">Your Stache Deserves<br>Ultragalactic Power.</h2>
+          <p data-i18n="finalcta.sub">Join thousands of orbital commanders worldwide. 100% satisfaction, or a full interstellar refund.</p>
+          <a class="btn btn--primary" href="https://wa.me/40774632979" target="_blank" rel="noopener noreferrer" data-magnetic>
+            <span data-i18n="finalcta.cta">Launch Your Stache</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 5l7 7-7 7M21 12H3"/></svg>
+          </a>
+
+          <div class="newsletter">
+            <form data-newsletter>
+              <label class="visually-hidden" for="newsletter-email" data-i18n="newsletter.label">Email address</label>
+              <input id="newsletter-email" type="email" placeholder="Enter Frequency / Email…" data-i18n-attr="placeholder:newsletter.placeholder" required>
+              <button class="btn btn--outline-magenta btn--sm" type="submit" data-i18n="newsletter.btn">Join Fleet</button>
+            </form>
+            <p class="newsletter__status" data-newsletter-status aria-live="polite"></p>
+            <p class="newsletter__fine" data-i18n="newsletter.fine">Zero spam. Only orbital release notifications.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================ -->
+<!-- FOOTER                                                        -->
+<!-- ============================================================ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#top" aria-label="ULTRAGALACTICSTACHE home">
+          <span class="brand__mark"><img src="assets/brand-medallion.png" alt="" width="40" height="40" loading="lazy"></span>
+          <span class="brand__type">
+            <span class="brand__name">ULTRAGALACTIC<wbr>STACHE</span>
+            <span class="brand__tag">Extremely Strong Hold</span>
+          </span>
+        </a>
+        <p data-i18n="footer.desc">Extreme-hold moustache wax, formulated with refined beeswax and cosmic botanical extracts — for gentlemen in every gravity field.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
+          <a href="#" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 3H22l-7.2 8.2L23 21h-6.9l-5.4-6.6L4.5 21H1.4l7.7-8.8L1 3h7l4.9 6z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="5.5" width="19" height="13" rx="3.5"/><path d="M10.5 9.5l5 2.5-5 2.5z" fill="currentColor" stroke="none"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 data-i18n="footer.shop.h">Shop</h4>
+        <ul>
+          <li><a href="#shop" data-i18n="footer.shop.1">The Original</a></li>
+          <li><a href="#shop" data-i18n="footer.shop.2">Nebula Edition</a></li>
+          <li><a href="#shop" data-i18n="footer.shop.3">Supernova Edition</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 data-i18n="footer.company.h">Company</h4>
+        <ul>
+          <li><a href="#universe" data-i18n="footer.company.1">About</a></li>
+          <li><a href="#formula" data-i18n="footer.company.2">The Formula</a></li>
+          <li><a href="#reviews" data-i18n="footer.company.3">FAQ</a></li>
+          <li><a href="mailto:command@ultragalacticstache.com" data-i18n="footer.company.4">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div data-i18n="footer.bottom">&copy; <span data-year>2026</span> ULTRAGALACTICSTACHE — All Rights Reserved.</div>
+      <div class="footer-bottom__links">
+        <a href="#" data-i18n="footer.privacy">Privacy</a>
+        <a href="#" data-i18n="footer.terms">Terms</a>
+        <a href="#" data-i18n="footer.shipping">Shipping</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="js/main.js" defer></script>
+<script src="js/i18n.js" defer></script>
+</body>
+</html>
