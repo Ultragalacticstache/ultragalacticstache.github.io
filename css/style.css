@@ -559,6 +559,7 @@ h2.headline{font-size:clamp(2rem,4.4vw,3.4rem);}
   font-family:var(--font-body);font-weight:400;color:var(--ink-dim);
   font-size:clamp(1rem,1.6vw,1.25rem);max-width:46ch;line-height:1.65;
 }
+@media (min-width:1000px){.hero__lede{margin-top:-15px;}}
 @media (min-width:768px) and (max-width:999px){
   /* Same fix as .hero__stats: the 46ch cap makes this box narrower than the
      column at tablet widths, so it sits flush left instead of centering as a
