@@ -241,6 +241,7 @@ h2.headline{font-size:clamp(2rem,4.4vw,3.4rem);}
   will-change:transform;
 }
 .btn svg{width:15px;height:15px;transition:transform .3s var(--ease-out);}
+@media (max-width:599px){.artwork-banner__content .btn__pre{display:none;}}
 .btn--primary{
   background:linear-gradient(115deg,var(--cyan) 0%,#4f8bff 55%,var(--magenta) 100%);
   color:#040308;box-shadow:0 8px 30px -10px rgba(46,230,245,.55),inset 0 1px 0 rgba(255,255,255,.6);
@@ -342,6 +343,12 @@ h2.headline{font-size:clamp(2rem,4.4vw,3.4rem);}
   .nav-links{gap:1.3rem;}
   .nav-links a{font-size:.58rem;}
 }
+@media (min-width:900px) and (max-width:1400px){
+  .site-nav__bar{gap:.6rem;}
+  .site-nav__bar .brand__mark{width:150px;height:150px;}
+  .nav-links{gap:.85rem;}
+  .nav-links a{font-size:.52rem;}
+}
 @media (min-width:600px){
   /* Scrolled: compact 70px-tall bar with a matching 70px logo. */
   .site-nav.is-scrolled .site-nav__bar .brand__mark{width:70px;height:70px;}
@@ -402,6 +409,11 @@ h2.headline{font-size:clamp(2rem,4.4vw,3.4rem);}
 .lang-switch__btn:hover{color:var(--ink-dim);}
 .lang-switch__btn[aria-pressed="true"]{background:rgba(46,230,245,.16);color:#fff;}
 
+@media (min-width:900px) and (max-width:1400px){
+  .lang-switch{flex-direction:column;height:auto;gap:2px;align-self:center;}
+  .lang-switch__btn{height:auto;padding-block:.3rem;}
+}
+
 .menu-toggle{
   display:flex;flex-direction:column;justify-content:center;gap:5px;
   width:40px;height:40px;border-radius:10px;border:1px solid var(--border-hair);
@@ -421,6 +433,12 @@ h2.headline{font-size:clamp(2rem,4.4vw,3.4rem);}
   transition:opacity var(--dur-med) var(--ease-out),transform var(--dur-med) var(--ease-out),visibility 0s linear var(--dur-med);
 }
 .mobile-menu.is-open{opacity:1;visibility:visible;transform:translateY(0);transition-delay:0s;}
+.mobile-menu__close{
+  position:absolute;top:1.6rem;right:var(--gutter);z-index:1;
+  display:flex;align-items:center;justify-content:center;
+  width:40px;height:40px;border-radius:10px;border:1px solid var(--border-hair);
+  background:var(--surface-1);color:var(--ink);
+}
 .mobile-menu__links{display:flex;flex-direction:column;gap:1.6rem;}
 .mobile-menu__links a{
   font-family:var(--font-head);font-size:1.9rem;font-weight:600;color:var(--ink);
@@ -891,7 +909,7 @@ h2.headline{font-size:clamp(2rem,4.4vw,3.4rem);}
   .artwork-banner__content{flex-direction:row;align-items:center;justify-content:space-between;left:2rem;right:2rem;bottom:2rem;}
 }
 .artwork-banner__content h3{font-family:var(--font-display);font-size:clamp(1.2rem,2.6vw,1.9rem);color:#fff;}
-.artwork-banner__content span{font-family:var(--font-hud);font-size:.6rem;letter-spacing:.2em;color:#ff9dc4;text-transform:uppercase;display:block;margin-bottom:.4rem;}
+.artwork-banner__content > div > span{font-family:var(--font-hud);font-size:.6rem;letter-spacing:.2em;color:#ff9dc4;text-transform:uppercase;display:block;margin-bottom:.4rem;}
 
 /* ==========================================================================
    Protocol / How it works

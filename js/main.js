@@ -107,6 +107,7 @@
     const nav = document.querySelector('.site-nav');
     const toggle = document.querySelector('.menu-toggle');
     const menu = document.querySelector('.mobile-menu');
+    const closeBtn = document.querySelector('.mobile-menu__close');
     if (!nav) return;
 
     const onScroll = () => {
@@ -131,6 +132,7 @@
       expanded ? closeMenu() : openMenu();
     });
     menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeMenu));
+    if (closeBtn) closeBtn.addEventListener('click', closeMenu);
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeMenu();
     });
